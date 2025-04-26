@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Expression Recognition</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff6b6b, #f7b42c, #febc63);
+            background-clip: text;
+            color: transparent;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Gradient text animation */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b, 0 0 15px #f7b42c, 0 0 20px #febc63;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff6b6b, 0 0 20px #f7b42c, 0 0 30px #febc63;
+            }
+        }
+
+        /* Style for the video feed */
+        .video-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+            border: 3px solid #f7b42c;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .video-container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Style for the video stream */
+        img {
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            width: 640px;
+            height: 480px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        img:hover {
+            filter: brightness(1.2);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #f7b42c;
+        }
+
+        footer a {
+            color: #f7b42c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facial Expression Recognition</h1>
+
+    <div class="video-container">
+        <img src="{{ url_for('video') }}" alt="Video Stream">
+    </div>
+
+    <footer>
+        <p>Powered by <a href="https://ultralytics.com" target="_blank">Ultralytics YOLO</a></p>
+    </footer>
+</body>
+</html>
